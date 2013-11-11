@@ -1,20 +1,38 @@
+
 module.exports = function(grunt) {
 
-  // Project configuration.
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
 
-    mochaTest: {
-        options: {
-          reporter: 'spec'
+        mochaTest: {
+            options: {
+                reporter: 'spec'
+            },
+            src: ['tests/**/*.js']
         },
-        src: ['tests/**/*.js']
-    }
 
-  });
+        watch: {
+            scripts: {
+                files: ['**/*.js'],
+                tasks: ['default'],
+                options: {
+                    spawn: true,
+                },
+            },
+        },
 
-  grunt.loadNpmTasks('grunt-mocha-test');
+        jshint: {
+            nodecode: {
+                src: ['app.js', 'lib/**/*.js', 'tests/**/*.js', 'gruntfile.js'],
+                options: { jshintrc: 'jshint-rules-nodejs.jshintrc' }
+            }
+        },
+    });
 
-  grunt.registerTask('default', ['mochaTest']);
+    grunt.loadNpmTasks('grunt-mocha-test');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+
+    grunt.registerTask('default', ['jshint', 'mochaTest']);
 
 };

@@ -12,7 +12,10 @@
     "mocha": "~1.14.0",
     "grunt-mocha-test": "~0.7.0",
     "growl": "~1.7.0",
-    "should": "~2.0.2"
+    "should": "~2.0.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "jshint": "~2.3.0",
+    "grunt-contrib-jshint": "~0.7.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

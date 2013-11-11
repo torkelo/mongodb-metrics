@@ -1,8 +1,7 @@
 
-var MongoClient = require('mongodb').MongoClient
-var format = require('util').format;
+var MongoClient = require('mongodb').MongoClient;
 var RQ = require('./rq.js');
-var mongoDbUrl = 'mongodb://127.0.0.1:27017';
+var mongoDbUrl = 'mongodb://127.0.0.1:31337';
 
 var toMongoDbCallback = function (requesition, db) {
 	return function(err, data) {
@@ -10,31 +9,31 @@ var toMongoDbCallback = function (requesition, db) {
 			requesition({db: db, data: data});
 		}
 		requesition(data, err || undefined);
-	}
+	};
 };
 
 function connectToMongoDb (requesition) {
 	console.log("connecting to mongo: %s", mongoDbUrl);
 	MongoClient.connect(mongoDbUrl, toMongoDbCallback(requesition));
-};
+}
 
-function fetchServerStatus (requesition, db) {
+/*function fetchServerStatus (requesition, db) {
 	console.log("fetching serverStatus");
 	var admin = db.admin();
 	admin.serverStatus(toMongoDbCallback(requesition));
-};
+}*/
 
-function fetchServerInfo (requesition, db) {
+/*function fetchServerInfo (requesition, db) {
 	console.log("fetching serverInfo");
 	var admin = db.admin();
 	admin.serverInfo(toMongoDbCallback(requesition));
-};
+}*/
 
-function replSetGetStatus (requesition, db) {
+/*function replSetGetStatus (requesition, db) {
 	console.log("fetching replSetStatus");
 	var admin = db.admin();
 	admin.replSetGetStatus(toMongoDbCallback(requesition));
-};
+}*/
 
 function listDatabases (requesition, db) {
 	console.log("fetching database list");
@@ -42,11 +41,11 @@ function listDatabases (requesition, db) {
 	admin.listDatabases(toMongoDbCallback(requesition, db));
 }
 
-function saveToGraphite (requesition, data) {
+/*function saveToGraphite (requesition, data) {
 	console.log('Saving to graphite: ');
 	console.log('Metrics: ', data);
 	requesition(1);
-}
+}*/
 
 function dbStats (requesition, params) {
 	var db = params.db;
@@ -57,7 +56,7 @@ function dbStats (requesition, params) {
 			console.log("getting dbStats for %s", database.name);
 			var otherDb = db.db(database.name);
 			otherDb.stats(toMongoDbCallback(callback));
-		}
+		};
 	});
 
 	RQ.parallel(dbStatsRequestors)(requesition);
@@ -92,7 +91,7 @@ result(function (success, failure) {
 
 	setTimeout(function() {
 		process.exit();
-	}, 500)
+	}, 500);
 });
 
 
