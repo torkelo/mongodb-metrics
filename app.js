@@ -1,45 +1,36 @@
 
-var MongoClient = require('mongodb').MongoClient;
-var RQ = require('./rq.js');
-var mongoDbUrl = 'mongodb://127.0.0.1:31337';
+var RQ = require('./app/rq');
+var _ = require('underscore');
+var config = require('./config.json');
+var readers = require('./app/readers');
 
-var toMongoDbCallback = function (requesition, db) {
-	return function(err, data) {
-		if (!err && db) {
-			requesition({db: db, data: data});
+function fetchDataForInstance(serverName, instance) {
+	var process = RQ.sequence([
+		readers.connectToMongoDb,
+		readers.fetchServerStatus
+	]);
+
+	process(function(success, failure) {
+
+		if (failure) {
+			console.log("Error: ", failure);
 		}
-		requesition(data, err || undefined);
-	};
-};
+		else {
+			console.log("Success!", success);
+		}
 
-function connectToMongoDb (requesition) {
-	console.log("connecting to mongo: %s", mongoDbUrl);
-	MongoClient.connect(mongoDbUrl, toMongoDbCallback(requesition));
+		setTimeout(function() {
+			process.exit();
+		}, 500);
+
+	}, instance);
 }
 
-/*function fetchServerStatus (requesition, db) {
-	console.log("fetching serverStatus");
-	var admin = db.admin();
-	admin.serverStatus(toMongoDbCallback(requesition));
-}*/
-
-/*function fetchServerInfo (requesition, db) {
-	console.log("fetching serverInfo");
-	var admin = db.admin();
-	admin.serverInfo(toMongoDbCallback(requesition));
-}*/
-
-/*function replSetGetStatus (requesition, db) {
-	console.log("fetching replSetStatus");
-	var admin = db.admin();
-	admin.replSetGetStatus(toMongoDbCallback(requesition));
-}*/
-
-function listDatabases (requesition, db) {
-	console.log("fetching database list");
-	var admin = db.admin();
-	admin.listDatabases(toMongoDbCallback(requesition, db));
-}
+config.servers.forEach(function(srv) {
+	srv.instances.forEach(function(instance) {
+		fetchDataForInstance(srv.name, instance);
+	});
+});
 
 /*function saveToGraphite (requesition, data) {
 	console.log('Saving to graphite: ');
@@ -47,27 +38,13 @@ function listDatabases (requesition, db) {
 	requesition(1);
 }*/
 
-function dbStats (requesition, params) {
-	var db = params.db;
-	var	databases = params.data.databases;
-
-	var dbStatsRequestors = databases.map(function(database) {
-		return function(callback) {
-			console.log("getting dbStats for %s", database.name);
-			var otherDb = db.db(database.name);
-			otherDb.stats(toMongoDbCallback(callback));
-		};
-	});
-
-	RQ.parallel(dbStatsRequestors)(requesition);
-}
-
-var result = RQ.sequence([
+/*var result = RQ.sequence([
 	connectToMongoDb,
-	listDatabases,
-	dbStats
+	fetchServerStatus
+	//listDatabases,
+	//dbStats
 ]);
-
+*/
 /*var result = RQ.sequence([
 	connectToMongoDb,
 	RQ.parallel([
@@ -81,7 +58,7 @@ var result = RQ.sequence([
 ]);
 */
 
-result(function (success, failure) {
+/*result(function (success, failure) {
 	if (failure) {
 		console.log("Error: ", failure);
 	}
@@ -93,6 +70,6 @@ result(function (success, failure) {
 		process.exit();
 	}, 500);
 });
-
+*/
 
 

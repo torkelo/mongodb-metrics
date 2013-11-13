@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 
         jshint: {
             nodecode: {
-                src: ['app.js', 'lib/**/*.js', 'tests/**/*.js', 'gruntfile.js'],
+                src: ['app.js', 'app/app.js', 'tests/**/*.js', 'gruntfile.js'],
                 options: { jshintrc: 'jshint-rules-nodejs.jshintrc' }
             }
         },

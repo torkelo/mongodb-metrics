@@ -15,7 +15,8 @@
     "should": "~2.0.2",
     "grunt-contrib-watch": "~0.5.3",
     "jshint": "~2.3.0",
-    "grunt-contrib-jshint": "~0.7.1"
+    "grunt-contrib-jshint": "~0.7.1",
+    "underscore": "~1.5.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
