@@ -1,75 +1,37 @@
 
-var RQ = require('./app/rq');
+var RQ = require('./rq');
 var _ = require('underscore');
 var config = require('./config.json');
-var readers = require('./app/readers');
+var readers = require('./lib/readers');
+var writer = require('./lib/writer')(config);
 
-function fetchDataForInstance(serverName, instance) {
-	var process = RQ.sequence([
+function fetchDataForServer(requestion, server) {
+
+	RQ.sequence([
 		readers.connectToMongoDb,
-		readers.fetchServerStatus
-	]);
+		readers.fetchServerStatus,
+		writer.toGraphiteMetricsArray(server, config.metrics.serverStatus),
+		writer.sendToGraphite
+	])(requestion, server);
 
-	process(function(success, failure) {
-
-		if (failure) {
-			console.log("Error: ", failure);
-		}
-		else {
-			console.log("Success!", success);
-		}
-
-		setTimeout(function() {
-			process.exit();
-		}, 500);
-
-	}, instance);
 }
 
-config.servers.forEach(function(srv) {
-	srv.instances.forEach(function(instance) {
-		fetchDataForInstance(srv.name, instance);
+function intervalLoop() {
+
+	var	workArray = config.servers.map(function(server) {
+		return function(requestion) {
+			fetchDataForServer(requestion, server);
+		};
 	});
-});
 
-/*function saveToGraphite (requesition, data) {
-	console.log('Saving to graphite: ');
-	console.log('Metrics: ', data);
-	requesition(1);
-}*/
+	RQ.parallel(workArray)(function(success, failure) {
+		if (failure) {
+			console.log('Error:', failure);
+		}
+		else {
+			console.log('Metric fetched and sent to graphite for all servers');
+		}
+	});
+}
 
-/*var result = RQ.sequence([
-	connectToMongoDb,
-	fetchServerStatus
-	//listDatabases,
-	//dbStats
-]);
-*/
-/*var result = RQ.sequence([
-	connectToMongoDb,
-	RQ.parallel([
-		fetchServerStatus,
-		RQ.sequence([
-			listDatabases,
-			dbStats
-		])
-	])
-
-]);
-*/
-
-/*result(function (success, failure) {
-	if (failure) {
-		console.log("Error: ", failure);
-	}
-	else {
-		console.log("Success!", success);
-	}
-
-	setTimeout(function() {
-		process.exit();
-	}, 500);
-});
-*/
-
-
+setInterval(intervalLoop, config.intervalSeconds * 1000);

@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 
         watch: {
             scripts: {
-                files: ['**/*.js'],
+                files: ['**/*.js', '**/*.json'],
                 tasks: ['default'],
                 options: {
                     spawn: true,
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
 
         jshint: {
             nodecode: {
-                src: ['app.js', 'app/app.js', 'tests/**/*.js', 'gruntfile.js'],
+                src: ['app.js', 'lib/*.js', 'tests/**/*.js', 'gruntfile.js', '*.json'],
                 options: { jshintrc: 'jshint-rules-nodejs.jshintrc' }
             }
         },

@@ -1,0 +1,1230 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"metr",
+				"metrics"
+			],
+			[
+				"prop",
+				"propName"
+			],
+			[
+				"get",
+				"getWriter"
+			],
+			[
+				"re",
+				"requesition"
+			],
+			[
+				"req",
+				"requesition"
+			],
+			[
+				"res",
+				"requesition"
+			],
+			[
+				"serve",
+				"serverStatus"
+			],
+			[
+				"fet",
+				"fetchServerStatus"
+			],
+			[
+				"conn",
+				"connectToMongoDb"
+			],
+			[
+				"mongo",
+				"mongoDbUrl"
+			],
+			[
+				"fetc",
+				"fetchDataForInstance"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app.js",
+			"settings":
+			{
+				"buffer_size": 1299,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/ebay/asimov-tradera/WinAgent.ConfigFiles/config.json",
+			"settings":
+			{
+				"buffer_size": 4138,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/rq.js",
+			"settings":
+			{
+				"buffer_size": 24225,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/readers.js",
+			"settings":
+			{
+				"buffer_size": 1900,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/writer.js",
+			"settings":
+			{
+				"buffer_size": 757,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "tests/writer-specs.js",
+			"settings":
+			{
+				"buffer_size": 751,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "tests/serverStatus.json",
+			"settings":
+			{
+				"buffer_size": 5654,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 127 files for \"No primary found in set\"\n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\lib\\mongodb\\connection\\repl_set\\repl_set.js:\n  435      } else if(candidateServers.length == 0) {      \n  436        if(!self.options.connectWithNoPrimary && (self._state.master == null || !self._state.master.isConnected())) {\n  437:         return self.emit(\"connectionError\", new Error(\"No primary found in set\"));\n  438        }\n  439        return self.emit(\"fullsetup\", null, self.options.db, self);\n\n1 match in 1 file\n\n\nSearching 127 files for \"connectWithNoPrimary\"\n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\lib\\mongodb\\connection\\repl_set\\options.js:\n   18    this.secondaryAcceptableLatencyMS = options.secondaryAcceptableLatencyMS || 15;\n   19    this.connectArbiter = options.connectArbiter || false;\n   20:   this.connectWithNoPrimary = options.connectWithNoPrimary || false;\n   21    this.logger = options.logger;\n   22    this.ssl = options.ssl || false;\n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\lib\\mongodb\\connection\\repl_set\\repl_set.js:\n   40   *  - **strategy** {String, default:'ping'}, selection strategy for reads choose between (ping, statistical and none, default is ping)\n   41   *  - **secondaryAcceptableLatencyMS** {Number, default:15}, sets the range of servers to pick when using NEAREST (lowest ping ms + the latency fence, ex: range of 1 to (1 + 15) ms)\n   42:  *  - **connectWithNoPrimary** {Boolean, default:false}, sets if the driver should connect even if no primary is available\n   43   *  - **connectArbiter** {Boolean, default:false}, sets if the driver should connect to arbiters or not.\n   44   *  - **logger** {Object, default:null}, an object representing a logger that you want to use, needs to support functions debug, log, error **({error:function(message, object) {}, log:function(message, object) {}, debug:function(message, object) {}})**.\n   ..\n  434          return self.emit(\"connectionError\", new Error(\"No valid replicaset instance servers found\"));\n  435      } else if(candidateServers.length == 0) {      \n  436:       if(!self.options.connectWithNoPrimary && (self._state.master == null || !self._state.master.isConnected())) {\n  437          return self.emit(\"connectionError\", new Error(\"No primary found in set\"));\n  438        }\n\n4 matches across 2 files\n\n\nSearching 127 files for \"No primary found in set\"\n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\lib\\mongodb\\connection\\repl_set\\repl_set.js:\n  435      } else if(candidateServers.length == 0) {      \n  436        if(!self.options.connectWithNoPrimary && (self._state.master == null || !self._state.master.isConnected())) {\n  437:         return self.emit(\"connectionError\", new Error(\"No primary found in set\"));\n  438        }\n  439        return self.emit(\"fullsetup\", null, self.options.db, self);\n\n1 match in 1 file\n\n\nSearching 127 files for \"PRIMARY PREFERRED\"\n\n0 matches across 0 files\n\n\nSearching 127 files for \"PREFERRED\"\n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\lib\\mongodb\\collection.js:\n   29   *\n   30   * Options\n   31:  *  - **readPreference** {String}, the prefered read preference (ReadPreference.PRIMARY, ReadPreference.PRIMARY_PREFERRED, ReadPreference.SECONDARY, ReadPreference.SECONDARY_PREFERRED, ReadPreference.NEAREST).\n   32   *  - **slaveOk** {Boolean, default:false}, Allow reads from secondaries.\n   33   *  - **serializeFunctions** {Boolean, default:false}, serialize functions on the document.\n   ..\n  518   *\n  519   * Options\n  520:  *  - **readPreference** {String}, the preferred read preference (Server.PRIMARY, Server.PRIMARY_PREFERRED, Server.SECONDARY, Server.SECONDARY_PREFERRED, Server.NEAREST).\n  521   *\n  522   * @param {String} key key to run distinct against.\n  ...\n  556   *  - **skip** {Number}, The number of documents to skip for the count.\n  557   *  - **limit** {Number}, The limit of documents to count.\n  558:  *  - **readPreference** {String}, the preferred read preference (Server.PRIMARY, Server.PRIMARY_PREFERRED, Server.SECONDARY, Server.SECONDARY_PREFERRED, Server.NEAREST).\n  559   *\n  560   * @param {Object} [query] query to filter by before performing count.\n  ...\n  745   *  - **comment** {String}, You can put a $comment field on a query to make looking in the profiler logs simpler.\n  746   *  - **raw** {Boolean, default:false}, Return all BSON documents as Raw Buffer documents.\n  747:  *  - **readPreference** {String}, the preferred read preference ((Server.PRIMARY, Server.PRIMARY_PREFERRED, Server.SECONDARY, Server.SECONDARY_PREFERRED, Server.NEAREST).\n  748   *  - **numberOfRetries** {Number, default:5}, if using awaidata specifies the number of times to retry on timeout.\n  749   *  - **partial** {Boolean, default:false}, specify if the cursor should return partial results when querying against a sharded system\n  ...\n  934   *  - **comment** {String}, You can put a $comment field on a query to make looking in the profiler logs simpler.\n  935   *  - **raw** {Boolean, default:false}, Return all BSON documents as Raw Buffer documents.\n  936:  *  - **readPreference** {String}, the preferred read preference (Server.PRIMARY, Server.PRIMARY_PREFERRED, Server.SECONDARY, Server.SECONDARY_PREFERRED, Server.NEAREST).\n  937   *  - **partial** {Boolean, default:false}, specify if the cursor should return partial results when querying against a sharded system\n  938   *\n  ...\n 1119   *  - **jsMode** {Boolean, default:false}, it is possible to make the execution stay in JS. Provided in MongoDB > 2.0.X.\n 1120   *  - **verbose** {Boolean, default:false}, provide statistics on job execution time.\n 1121:  *  - **readPreference** {String, only for inline results}, the preferred read preference (Server.PRIMARY, Server.PRIMARY_PREFERRED, Server.SECONDARY, Server.SECONDARY_PREFERRED, Server.NEAREST).\n 1122   *\n 1123   * @param {Function|String} map the mapping function.\n ....\n 1278    *\n 1279   * Options\n 1280:  *  - **readPreference** {String}, the preferred read preference (Server.PRIMARY, Server.PRIMARY_PREFERRED, Server.SECONDARY, Server.SECONDARY_PREFERRED, Server.NEAREST).\n 1281   *\n 1282   * @param {Object|Array|Function|Code} keys an object, array or function expressing the keys to group by.\n ....\n 1455   *  - **uniqueDocs** {Boolean, default:false}, the closest location in a document to the center of the search region will always be returned MongoDB > 2.X.\n 1456   *  - **includeLocs** {Boolean, default:false}, include the location data fields in the top level of the results MongoDB > 2.X.\n 1457:  *  - **readPreference** {String}, the preferred read preference ((Server.PRIMARY, Server.PRIMARY_PREFERRED, Server.SECONDARY, Server.SECONDARY_PREFERRED, Server.NEAREST).\n 1458   *\n 1459   * @param {Number} x point to search on the x axis, ensure the indexes are ordered in the same order.\n ....\n 1509   *  - **search** {Object}, filter the results by a query.\n 1510   *  - **limit** {Number}, max number of results to return.\n 1511:  *  - **readPreference** {String}, the preferred read preference ((Server.PRIMARY, Server.PRIMARY_PREFERRED, Server.SECONDARY, Server.SECONDARY_PREFERRED, Server.NEAREST).\n 1512   *\n 1513   * @param {Number} x point to search on the x axis, ensure the indexes are ordered in the same order.\n ....\n 1569   *\n 1570   * Options\n 1571:  *  - **readPreference** {String}, the preferred read preference ((Server.PRIMARY, Server.PRIMARY_PREFERRED, Server.SECONDARY, Server.SECONDARY_PREFERRED, Server.NEAREST).\n 1572   *\n 1573   * @param {Array} array containing all the aggregation framework commands for the execution.\n ....\n 1619   * Options\n 1620   *  - **scale** {Number}, divide the returned sizes by scale value.\n 1621:  *  - **readPreference** {String}, the preferred read preference ((Server.PRIMARY, Server.PRIMARY_PREFERRED, Server.SECONDARY, Server.SECONDARY_PREFERRED, Server.NEAREST).\n 1622   *\n 1623   * @param {Objects} [options] options for the stats command.\n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\lib\\mongodb\\commands\\query_command.js:\n   66    // If we have readPreference set to true set to secondary prefered\n   67    if(readPreference == true) {\n   68:     readPreference = 'secondaryPreferred';\n   69    } else if(readPreference == 'false') {\n   70      readPreference = 'primary';\n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\lib\\mongodb\\connection\\read_preference.js:\n    4   * Read Preferences\n    5   *  - **ReadPreference.PRIMARY**, Read from primary only. All operations produce an error (throw an exception where applicable) if primary is unavailable. Cannot be combined with tags (This is the default.).\n    6:  *  - **ReadPreference.PRIMARY_PREFERRED**, Read from primary if available, otherwise a secondary.\n    7   *  - **ReadPreference.SECONDARY**, Read from secondary if available, otherwise error.\n    8:  *  - **ReadPreference.SECONDARY_PREFERRED**, Read from a secondary if available, otherwise read from the primary.\n    9   *  - **ReadPreference.NEAREST**, All modes read from among the nearest candidates, but unlike other modes, NEAREST will include both the primary and all secondaries in the random selection.\n   10   *\n   ..\n   26   */\n   27  ReadPreference.isValid = function(_mode) {\n   28:   return (_mode == ReadPreference.PRIMARY || _mode == ReadPreference.PRIMARY_PREFERRED\n   29:     || _mode == ReadPreference.SECONDARY || _mode == ReadPreference.SECONDARY_PREFERRED\n   30      || _mode == ReadPreference.NEAREST\n   31      || _mode == true || _mode == false);\n   ..\n   57   */\n   58  ReadPreference.PRIMARY = 'primary';\n   59: ReadPreference.PRIMARY_PREFERRED = 'primaryPreferred';\n   60  ReadPreference.SECONDARY = 'secondary';\n   61: ReadPreference.SECONDARY_PREFERRED = 'secondaryPreferred';\n   62  ReadPreference.NEAREST = 'nearest'\n   63  \n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\lib\\mongodb\\connection\\repl_set\\options.js:\n   47    // Validate correctness of Read preferences\n   48    if(readPreference != null) {\n   49:     if(readPreference != ReadPreference.PRIMARY && readPreference != ReadPreference.PRIMARY_PREFERRED\n   50:       && readPreference != ReadPreference.SECONDARY && readPreference != ReadPreference.SECONDARY_PREFERRED\n   51        && readPreference != ReadPreference.NEAREST && typeof readPreference != 'object' && readPreference['_type'] != 'ReadPreference') {\n   52        throw new Error(\"Illegal readPreference mode specified, \" + readPreference);\n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\lib\\mongodb\\connection\\repl_set\\repl_set.js:\n   37   *  - **rs_name** {String}, the name of the replicaset to connect to.\n   38   *  - **socketOptions** {Object, default:null}, an object containing socket options to use (noDelay:(boolean), keepAlive:(number), connectTimeoutMS:(number), socketTimeoutMS:(number))\n   39:  *  - **readPreference** {String}, the prefered read preference (ReadPreference.PRIMARY, ReadPreference.PRIMARY_PREFERRED, ReadPreference.SECONDARY, ReadPreference.SECONDARY_PREFERRED, ReadPreference.NEAREST).\n   40   *  - **strategy** {String, default:'ping'}, selection strategy for reads choose between (ping, statistical and none, default is ping)\n   41   *  - **secondaryAcceptableLatencyMS** {Number, default:15}, sets the range of servers to pick when using NEAREST (lowest ping ms + the latency fence, ex: range of 1 to (1 + 15) ms)\n   ..\n  464      isConnected = this._state.master != null && this._state.master.isConnected();\n  465  \n  466:   if((read == ReadPreference.PRIMARY_PREFERRED || read == ReadPreference.SECONDARY_PREFERRED || read == ReadPreference.NEAREST)\n  467      && ((this._state.master != null && this._state.master.isConnected())\n  468      || (this._state && this._state.secondaries && Object.keys(this._state.secondaries).length > 0))) {\n  ...\n  559  \n  560    // Finalize the read preference setup\n  561:   finalReadPreference = finalReadPreference == true ? ReadPreference.SECONDARY_PREFERRED : finalReadPreference;\n  562    finalReadPreference = finalReadPreference == null ? ReadPreference.PRIMARY : finalReadPreference;\n  563  \n  ...\n  580    // If we have specified to read from a secondary server grab a random one and read\n  581    // from it, otherwise just pass the primary connection\n  582:   if((this.options.readSecondary || finalReadPreference == ReadPreference.SECONDARY_PREFERRED || finalReadPreference == ReadPreference.SECONDARY) && Object.keys(this._state.secondaries).length > 0) {\n  583      // If we have tags, look for servers matching the specific tag\n  584      if(this.strategyInstance != null) {\n  ...\n  614        connection = _roundRobin(this, tags);\n  615      }\n  616:   } else if(finalReadPreference == ReadPreference.PRIMARY_PREFERRED) {\n  617      // Check if there is a primary available and return that if possible\n  618      connection = this.checkoutWriter();\n  ...\n  631        }\n  632      }\n  633:   } else if(finalReadPreference == ReadPreference.SECONDARY_PREFERRED) {\n  634      // If we have tags, look for servers matching the specific tag\n  635      if(this.strategyInstance != null) {\n  ...\n  765  \n  766    // If we still have a null, read from primary if it's not secondary only\n  767:   if(self._readPreference == ReadPreference.SECONDARY_PREFERRED) {\n  768      connection = self._state.master.checkoutReader();\n  769      if(connection) return connection;\n  770    }\n  771  \n  772:   var preferenceName = self._readPreference == ReadPreference.SECONDARY_PREFERRED\n  773      ? 'secondary'\n  774      : self._readPreference;\n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\lib\\mongodb\\connection\\server.js:\n   18   *\n   19   * Options\n   20:  *  - **readPreference** {String, default:null}, set's the read preference (ReadPreference.PRIMARY, ReadPreference.PRIMARY_PREFERRED, ReadPreference.SECONDARY, ReadPreference.SECONDARY_PREFERRED, ReadPreference.NEAREST)\n   21   *  - **ssl** {Boolean, default:false}, use ssl connection (needs to have a mongod server with ssl support)\n   22   *  - **sslValidate** {Boolean, default:false}, validate mongod server certificate against ca (needs to have a mongod server with ssl support, 2.4 or higher)\n   ..\n   90    if(validateReadPreference != null) {\n   91      if(validateReadPreference != ReadPreference.PRIMARY && validateReadPreference != ReadPreference.SECONDARY && validateReadPreference != ReadPreference.NEAREST\n   92:       && validateReadPreference != ReadPreference.SECONDARY_PREFERRED && validateReadPreference != ReadPreference.PRIMARY_PREFERRED) {\n   93          throw new Error(\"Illegal readPreference mode specified, \" + validateReadPreference);\n   94      }\n   ..\n  148  //\n  149  Server.READ_PRIMARY = ReadPreference.PRIMARY;\n  150: Server.READ_SECONDARY = ReadPreference.SECONDARY_PREFERRED;\n  151  Server.READ_SECONDARY_ONLY = ReadPreference.SECONDARY;\n  152  \n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\lib\\mongodb\\connection\\url_parser.js:\n  205          break;\n  206        case 'readPreference':\n  207:         if(!ReadPreference.isValid(value)) throw new Error(\"readPreference must be either primary/primaryPreferred/secondary/secondaryPreferred/nearest\");\n  208          dbOptions.read_preference = value;\n  209          break;\n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\lib\\mongodb\\cursor.js:\n  400    } else if(_mode != null && _mode != 'primary'\n  401      && _mode != 'secondaryOnly' && _mode != 'secondary' \n  402:     && _mode != 'nearest' && _mode != 'primaryPreferred' && _mode != 'secondaryPreferred') {\n  403:       if(callback == null) throw new Error(\"only readPreference of primary, secondary, secondaryPreferred, primaryPreferred or nearest supported\");\n  404:       callback(new Error(\"only readPreference of primary, secondary, secondaryPreferred, primaryPreferred or nearest supported\"));\n  405    } else {\n  406      this.read = readPreference;\n  ...\n  523  \n  524    // if(self.read == 'secondary')\n  525:   if(read == ReadPreference.PRIMARY_PREFERRED\n  526      || read == ReadPreference.SECONDARY\n  527:     || read == ReadPreference.SECONDARY_PREFERRED\n  528      || read == ReadPreference.NEAREST) {\n  529        queryOptions |= QueryCommand.OPTS_SLAVE;\n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\lib\\mongodb\\db.js:\n   41   *  - **fsync**, (Boolean, default:false) write waits for fsync before returning\n   42   *  - **journal**, (Boolean, default:false) write waits for journal sync before returning\n   43:  *  - **readPreference** {String}, the prefered read preference (ReadPreference.PRIMARY, ReadPreference.PRIMARY_PREFERRED, ReadPreference.SECONDARY, ReadPreference.SECONDARY_PREFERRED, ReadPreference.NEAREST).\n   44   *  - **native_parser** {Boolean, default:false}, use c++ bson parser.\n   45   *  - **forceServerObjectId** {Boolean, default:false}, force server to create _id fields instead of client.\n   ..\n  442   *  - **raw** {Boolean, default:false}, perform all operations using raw bson objects.\n  443   *  - **pkFactory** {Object}, object overriding the basic ObjectID primary key generation.\n  444:  *  - **readPreference** {String}, the prefered read preference (ReadPreference.PRIMARY, ReadPreference.PRIMARY_PREFERRED, ReadPreference.SECONDARY, ReadPreference.SECONDARY_PREFERRED, ReadPreference.NEAREST).\n  445   *  - **strict**, (Boolean, default:false) returns an error if the collection does not exist\n  446   * \n  ...\n  825   *  - **max** {Number}, the maximum number of documents in the capped collection.\n  826   *  - **autoIndexId** {Boolean, default:true}, create an index on the _id field of the document, True by default on MongoDB 2.2 or higher off for version < 2.2.\n  827:  *  - **readPreference** {String}, the prefered read preference (ReadPreference.PRIMARY, ReadPreference.PRIMARY_PREFERRED, ReadPreference.SECONDARY, ReadPreference.SECONDARY_PREFERRED, ReadPreference.NEAREST).\n  828   *  - **strict**, (Boolean, default:false) throws an error if collection already exists\n  829   * \n  ...\n 1302   *\n 1303   * Options\n 1304:  *  - **readPreference** {String}, the prefered read preference (ReadPreference.PRIMARY, ReadPreference.PRIMARY_PREFERRED, ReadPreference.SECONDARY, ReadPreference.SECONDARY_PREFERRED, ReadPreference.NEAREST).\n 1305   *\n 1306   * @param {Object} [options] additional options during update.\n ....\n 1351   * Options\n 1352   *  - **full** {Boolean, default:false}, returns the full raw index information.\n 1353:  *  - **readPreference** {String}, the preferred read preference ((Server.PRIMARY, Server.PRIMARY_PREFERRED, Server.SECONDARY, Server.SECONDARY_PREFERRED, Server.NEAREST).\n 1354   *\n 1355   * @param {String} collectionName the name of the collection.\n ....\n 1422   * Options\n 1423   *  - **scale** {Number}, divide the returned sizes by scale value.\n 1424:  *  - **readPreference** {String}, the preferred read preference ((Server.PRIMARY, Server.PRIMARY_PREFERRED, Server.SECONDARY, Server.SECONDARY_PREFERRED, Server.NEAREST).\n 1425   *\n 1426   * @param {Objects} [options] options for the stats command\n ....\n 1498      if(!connection.isConnected()) {\n 1499        if(read == ReadPreference.PRIMARY \n 1500:         || read == ReadPreference.PRIMARY_PREFERRED\n 1501          || (read != null && typeof read == 'object' && read.mode)\n 1502          || read == null) {\n ....\n 1636    if(!connection && !config.canRead(read) && !config.canWrite() && config.isAutoReconnect()) {\n 1637      if(read == ReadPreference.PRIMARY \n 1638:       || read == ReadPreference.PRIMARY_PREFERRED\n 1639        || (read != null && typeof read == 'object' && read.mode)\n 1640        || read == null) {\n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\lib\\mongodb\\gridfs\\gridstore.js:\n   37   *  - **chunk_size** {Number}, size for the chunk. Defaults to **{Chunk.DEFAULT_CHUNK_SIZE}**.\n   38   *  - **metadata** {Object}, arbitrary data the user wants to store.\n   39:  *  - **readPreference** {String}, the prefered read preference (ReadPreference.PRIMARY, ReadPreference.PRIMARY_PREFERRED, ReadPreference.SECONDARY, ReadPreference.SECONDARY_PREFERRED, ReadPreference.NEAREST).\n   40   *  - **w**, {Number/String, > -1 || 'majority' || tag name} the write concern for the operation where < 1 is no acknowlegement of write and w >= 1, w = 'majority' or tag acknowledges the write\n   41   *  - **wtimeout**, {Number, 0} set the timeout for waiting for write concern to finish (combines with w option)\n   ..\n  981   *\n  982   * Options\n  983:  *  - **readPreference** {String}, the prefered read preference (ReadPreference.PRIMARY, ReadPreference.PRIMARY_PREFERRED, ReadPreference.SECONDARY, ReadPreference.SECONDARY_PREFERRED, ReadPreference.NEAREST).\n  984   *\n  985   * @param {Db} db the database to query.\n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\lib\\mongodb\\mongo_client.js:\n   16   *  - **fsync**, (Boolean, default:false) write waits for fsync before returning\n   17   *  - **journal**, (Boolean, default:false) write waits for journal sync before returning\n   18:  *  - **readPreference** {String}, the prefered read preference (ReadPreference.PRIMARY, ReadPreference.PRIMARY_PREFERRED, ReadPreference.SECONDARY, ReadPreference.SECONDARY_PREFERRED, ReadPreference.NEAREST).\n   19   *  - **native_parser** {Boolean, default:false}, use c++ bson parser.\n   20   *  - **forceServerObjectId** {Boolean, default:false}, force server to create _id fields instead of client.\n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\LICENSE:\n   24        exercising permissions granted by this License.\n   25  \n   26:       \"Source\" form shall mean the preferred form for making modifications,\n   27        including but not limited to software source code, documentation\n   28        source, and configuration files.\n\nD:\\oss\\mongodb-metrics\\node_modules\\mongodb\\node_modules\\kerberos\\LICENSE:\n   24        exercising permissions granted by this License.\n   25  \n   26:       \"Source\" form shall mean the preferred form for making modifications,\n   27        including but not limited to software source code, documentation\n   28        source, and configuration files.\n\n92 matches across 13 files\n",
+			"settings":
+			{
+				"buffer_size": 21973,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "config.json",
+			"settings":
+			{
+				"buffer_size": 508,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "node_modules/mongodb/lib/mongodb/db.js",
+			"settings":
+			{
+				"buffer_size": 81496,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 44,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "gruntfile.js",
+			"settings":
+			{
+				"buffer_size": 897,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "{ host: 'se1-mongoutility-01.prod.tradera.com',\n  version: '2.4.4',\n  process: 'mongod',\n  pid: 1487,\n  uptime: 3685711,\n  uptimeMillis: 3685710299,\n  uptimeEstimate: 3648864,\n  localTime: Thu Nov 14 2013 08:25:43 GMT+0100 (W. Europe Standard Time),\n  asserts: { regular: 0, warning: 1, msg: 0, user: 2795, rollovers: 0 },\n  backgroundFlushing: \n   { flushes: 61428,\n     total_ms: 1658285,\n     average_ms: 26.995588331054243,\n     last_ms: 16,\n     last_finished: Thu Nov 14 2013 08:25:19 GMT+0100 (W. Europe Standard Time) },\n  connections: { current: 134, available: 9466, totalCreated: 4343142 },\n  cursors: { totalOpen: 4, clientCursors_size: 4, timedOut: 88 },\n  dur: \n   { commits: 30,\n     journaledMB: 0.229376,\n     writeToDataFilesMB: 0.326789,\n     compression: 0.6820069872890805,\n     commitsInWriteLock: 0,\n     earlyCommits: 0,\n     timeMs: \n      { dt: 3090,\n        prepLogBuffer: 0,\n        writeToJournal: 13,\n        writeToDataFiles: 3,\n        remapPrivateView: 3 } },\n  extra_info: \n   { note: 'fields vary by platform',\n     heap_usage_bytes: 200092944,\n     page_faults: 14616554 },\n  globalLock: \n   { totalTime: 3685710299000,\n     lockTime: 7947748663,\n     currentQueue: { total: 0, readers: 0, writers: 0 },\n     activeClients: { total: 0, readers: 0, writers: 0 } },\n  indexCounters: \n   { accesses: 3931152776,\n     hits: 3931325915,\n     misses: 0,\n     resets: 0,\n     missRatio: 0 },\n  locks: \n   { '.': { timeLockedMicros: [Object], timeAcquiringMicros: [Object] },\n     admin: { timeLockedMicros: [Object], timeAcquiringMicros: [Object] },\n     local: { timeLockedMicros: [Object], timeAcquiringMicros: [Object] },\n     VIP: { timeLockedMicros: [Object], timeAcquiringMicros: [Object] },\n     EventPusher: { timeLockedMicros: [Object], timeAcquiringMicros: [Object] },\n     Pricing: { timeLockedMicros: [Object], timeAcquiringMicros: [Object] },\n     WebApiBrowse: { timeLockedMicros: [Object], timeAcquiringMicros: [Object] },\n     FraudDetection: { timeLockedMicros: [Object], timeAcquiringMicros: [Object] },\n     Listing: { timeLockedMicros: [Object], timeAcquiringMicros: [Object] } },\n  network: \n   { bytesIn: 183692337906,\n     bytesOut: 2787149037085,\n     numRequests: 1604763970 },\n  opcounters: \n   { insert: 51894277,\n     query: 978112528,\n     update: 42166142,\n     delete: 9301,\n     getmore: 342535071,\n     command: 196684774 },\n  opcountersRepl: \n   { insert: 1107408,\n     query: 0,\n     update: 468734,\n     delete: 966226,\n     getmore: 0,\n     command: 0 },\n  recordStats: \n   { accessesNotInMemory: 5032861,\n     pageFaultExceptionsThrown: 1025882,\n     EventPusher: \n      { accessesNotInMemory: 834812,\n        pageFaultExceptionsThrown: 658944 },\n     FraudDetection: { accessesNotInMemory: 33852, pageFaultExceptionsThrown: 308 },\n     Listing: { accessesNotInMemory: 7327, pageFaultExceptionsThrown: 69 },\n     Pricing: { accessesNotInMemory: 1, pageFaultExceptionsThrown: 1 },\n     VIP: { accessesNotInMemory: 0, pageFaultExceptionsThrown: 0 },\n     WebApiBrowse: \n      { accessesNotInMemory: 4155896,\n        pageFaultExceptionsThrown: 366560 },\n     admin: { accessesNotInMemory: 0, pageFaultExceptionsThrown: 0 },\n     local: { accessesNotInMemory: 973, pageFaultExceptionsThrown: 0 } },\n  repl: \n   { setName: 'Utility',\n     ismaster: true,\n     secondary: false,\n     hosts: \n      [ 'se1-mongoutility-01:27017',\n        'se1-mongoutility-03:27017',\n        'se1-mongoutility-02:27017' ],\n     primary: 'se1-mongoutility-01:27017',\n     me: 'se1-mongoutility-01:27017' },\n  writeBacksQueued: false,\n  mem: \n   { bits: 64,\n     resident: 3839,\n     virtual: 223121,\n     supported: true,\n     mapped: 110845,\n     mappedWithJournal: 221690 },\n  metrics: \n   { document: \n      { deleted: 29162,\n        inserted: 51894279,\n        returned: 11137933015,\n        updated: 42733385 },\n     getLastError: { wtime: [Object], wtimeouts: 0 },\n     operation: { fastmod: 6593992, idhack: 747064092, scanAndOrder: 4 },\n     queryExecutor: { scanned: 6773384499 },\n     record: { moves: 4198621 },\n     repl: \n      { apply: [Object],\n        buffer: [Object],\n        network: [Object],\n        oplog: [Object],\n        preload: [Object] },\n     ttl: { deletedDocuments: 54568743, passes: 61022 } },\n  ok: 1 }",
+			"settings":
+			{
+				"buffer_size": 4277,
+				"line_ending": "Windows",
+				"name": "{ host: 'se1-mongoutility-01.prod.tradera.com',"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 60.0,
+		"selected_items":
+		[
+			[
+				"Install ",
+				"Package Control: Install Package"
+			],
+			[
+				"powers",
+				"SublimeREPL: PowerShell"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"packa	",
+				"Package Control: Install Package"
+			],
+			[
+				"Pack",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 402.0
+	},
+	"console":
+	{
+		"height": 368.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/ebay/asimov-tradera/WinAgent.ConfigFiles/config.test.json",
+		"/D/oss/mongodb-metrics/node_modules/mongodb/lib/mongodb/admin.js",
+		"/D/oss/mongodb-metrics/node_modules/mongodb/lib/mongodb/connection/repl_set/repl_set.js",
+		"/D/oss/mongodb-metrics/node_modules/mongodb/lib/mongodb/connection/repl_set/options.js",
+		"/D/oss/mongodb-metrics/node_modules/mongodb/lib/mongodb/db.js",
+		"/D/oss/mongodb-metrics/node_modules/mongodb/lib/mongodb/commands/db_command.js",
+		"//dashboards/d$/Inetpub/GiraffeOps/dashboards.js",
+		"/D/ebay/asimov-tradera/WinAgent.ConfigFiles/config.prod_tradera_site.json",
+		"/D/ebay/tradera/Deployment/VerificationPackages/TraderaSite/run.js",
+		"/C/Users/todegaard/AppData/Roaming/Sublime Text 3/Packages/User/node_app_js.sublime-build",
+		"/D/ebay/tools/Tools/AppLogs2Elastic/Gruntfile.js",
+		"/D/oss/mongodb-metrics/gruntfile.js",
+		"/C/Users/todegaard/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/D/oss/asimov-deploy-ui/Gruntfile.js",
+		"/D/ebay/tradera/Applications/TouchWeb/Gruntfile.js",
+		"/D/oss/mongodb-metrics/app.js",
+		"/D/oss/mongodb-metrics/tests/test.js",
+		"/C/Users/todegaard/AppData/Roaming/Sublime Text 3/Installed Packages/Tomorrow Color Schemes.sublime-package",
+		"/D/ebay/tradera/Build/EbaySweden-StartBuild.ps1",
+		"/D/ebay/tradera/Applications/TouchWeb/src/EbaySweden.TouchWeb/static/script/app.js",
+		"/D/ebay/tradera/Applications/TouchWeb/src/EbaySweden.TouchWeb/static/script/app/ui/view-item/bidding-ui.js",
+		"/D/ebay/tools/Tools/AppLogs2Elastic/App.config",
+		"//dashboards/d$/Inetpub/Kibana/config.js",
+		"/D/ebay/asimov-tradera/WinAgent.ConfigFiles/config.prod_api.json",
+		"/D/ebay/asimov-tradera/WinAgent.ConfigFiles/config.prod_tradera_site_test.json",
+		"/C/Users/todegaard/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.sublime-settings"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+			"D:\\oss\\mongodb-metrics\\node_modules\\mongodb",
+			"D:\\ebay\\tradera\\Applications\\TouchWeb",
+			"D:\\ebay\\tradera"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"my-mongo-db1",
+			"MyDb1",
+			"mongoDbUrl",
+			"console.lo",
+			"createAdminDbCommandSlaveOk",
+			"DbCommand",
+			"createAdminDbCommand",
+			"executeDbAdminCommand",
+			"command",
+			"executeDbAdminCommand",
+			"primaryPreferered",
+			"_executeQueryCommand",
+			"executeDbA",
+			"executeDbAdminCommand",
+			"ReadPreference.PRIMARY_PREFERRED",
+			"PREFERRED",
+			"PRIMARY PREFERRED",
+			"No primary found in set",
+			"connectWithNoPrimary",
+			"No primary found in set",
+			"var",
+			"_redirectToCartCheckout",
+			"data:cart:after-checkout-started",
+			"_startCheckout",
+			"ui:cart:on-checkout-start",
+			"on-checkout-start",
+			"_goToCheckout",
+			"checkoutAction",
+			"data-view-cart-button",
+			"cdn",
+			"traderaSite",
+			"(\"#",
+			"traderaSite",
+			"		",
+			"${",
+			"\n",
+			"back-to-tradera",
+			"CreateDeferr",
+			"Deferr<",
+			".Deferr",
+			"IDeferredMessage",
+			"SendFeedbackRemovalMail",
+			"SendFeedbackRemovalMail'",
+			"SendFeedbackRemovalMail",
+			"Create_DSR",
+			"Update_DSR_Stats",
+			"Create_DSR",
+			"Create_Grade_DSR\nCreate_DSR",
+			"Create_Grade_DSR\nCreate_Grade_DSR",
+			"Create_Grade_DSR\nCreate_Grade_DSR\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1299,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								382,
+								382
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/D/ebay/asimov-tradera/WinAgent.ConfigFiles/config.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4138,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								938,
+								938
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/rq.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24225,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4972,
+								4972
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2626.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/readers.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1900,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								627,
+								627
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 120.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/writer.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 757,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								677,
+								677
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "tests/writer-specs.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 751,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								476,
+								476
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "tests/serverStatus.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5654,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								749,
+								749
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 21973,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										384,
+										407
+									],
+									[
+										824,
+										844
+									],
+									[
+										855,
+										875
+									],
+									[
+										1403,
+										1423
+									],
+									[
+										2095,
+										2115
+									],
+									[
+										2705,
+										2728
+									],
+									[
+										3169,
+										3178
+									],
+									[
+										3231,
+										3240
+									],
+									[
+										3527,
+										3536
+									],
+									[
+										3585,
+										3594
+									],
+									[
+										3631,
+										3640
+									],
+									[
+										3925,
+										3934
+									],
+									[
+										3983,
+										3992
+									],
+									[
+										4029,
+										4038
+									],
+									[
+										4416,
+										4425
+									],
+									[
+										4475,
+										4484
+									],
+									[
+										4521,
+										4530
+									],
+									[
+										5085,
+										5094
+									],
+									[
+										5143,
+										5152
+									],
+									[
+										5189,
+										5198
+									],
+									[
+										5667,
+										5676
+									],
+									[
+										5725,
+										5734
+									],
+									[
+										5771,
+										5780
+									],
+									[
+										5951,
+										5960
+									],
+									[
+										6009,
+										6018
+									],
+									[
+										6055,
+										6064
+									],
+									[
+										6556,
+										6565
+									],
+									[
+										6615,
+										6624
+									],
+									[
+										6661,
+										6670
+									],
+									[
+										6991,
+										7000
+									],
+									[
+										7050,
+										7059
+									],
+									[
+										7096,
+										7105
+									],
+									[
+										7323,
+										7332
+									],
+									[
+										7382,
+										7391
+									],
+									[
+										7428,
+										7437
+									],
+									[
+										7711,
+										7720
+									],
+									[
+										7770,
+										7779
+									],
+									[
+										7816,
+										7825
+									],
+									[
+										8158,
+										8167
+									],
+									[
+										8625,
+										8634
+									],
+									[
+										8827,
+										8836
+									],
+									[
+										9268,
+										9277
+									],
+									[
+										9363,
+										9372
+									],
+									[
+										9557,
+										9566
+									],
+									[
+										9577,
+										9586
+									],
+									[
+										9668,
+										9677
+									],
+									[
+										9690,
+										9699
+									],
+									[
+										10031,
+										10040
+									],
+									[
+										10146,
+										10155
+									],
+									[
+										10867,
+										10876
+									],
+									[
+										10929,
+										10938
+									],
+									[
+										11443,
+										11452
+									],
+									[
+										11489,
+										11498
+									],
+									[
+										11871,
+										11880
+									],
+									[
+										12272,
+										12281
+									],
+									[
+										12644,
+										12653
+									],
+									[
+										12885,
+										12894
+									],
+									[
+										13176,
+										13185
+									],
+									[
+										13393,
+										13402
+									],
+									[
+										13700,
+										13709
+									],
+									[
+										13762,
+										13771
+									],
+									[
+										14365,
+										14374
+									],
+									[
+										14427,
+										14436
+									],
+									[
+										14678,
+										14687
+									],
+									[
+										15012,
+										15021
+									],
+									[
+										15041,
+										15050
+									],
+									[
+										15374,
+										15383
+									],
+									[
+										15407,
+										15416
+									],
+									[
+										15524,
+										15533
+									],
+									[
+										15542,
+										15551
+									],
+									[
+										15661,
+										15670
+									],
+									[
+										15679,
+										15688
+									],
+									[
+										15869,
+										15878
+									],
+									[
+										15973,
+										15982
+									],
+									[
+										16453,
+										16462
+									],
+									[
+										16515,
+										16524
+									],
+									[
+										17062,
+										17071
+									],
+									[
+										17124,
+										17133
+									],
+									[
+										17653,
+										17662
+									],
+									[
+										17715,
+										17724
+									],
+									[
+										18010,
+										18019
+									],
+									[
+										18072,
+										18081
+									],
+									[
+										18346,
+										18355
+									],
+									[
+										18405,
+										18414
+									],
+									[
+										18451,
+										18460
+									],
+									[
+										18703,
+										18712
+									],
+									[
+										18762,
+										18771
+									],
+									[
+										18808,
+										18817
+									],
+									[
+										19059,
+										19068
+									],
+									[
+										19377,
+										19386
+									],
+									[
+										19865,
+										19874
+									],
+									[
+										19927,
+										19936
+									],
+									[
+										20437,
+										20446
+									],
+									[
+										20499,
+										20508
+									],
+									[
+										20971,
+										20980
+									],
+									[
+										21033,
+										21042
+									],
+									[
+										21428,
+										21437
+									],
+									[
+										21780,
+										21789
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								9743,
+								9743
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 5,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2669.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "config.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 508,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								365,
+								365
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "node_modules/mongodb/lib/mongodb/db.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 81496,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								66079,
+								66079
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 35380.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": ".gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 44,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								44,
+								44
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "gruntfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 897,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								237,
+								237
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4277,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4277,
+								4277
+							]
+						],
+						"settings":
+						{
+							"auto_name": "{ host: 'se1-mongoutility-01.prod.tradera.com',",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": false,
+	"output.exec":
+	{
+		"height": 271.0
+	},
+	"project": "mongodb-metrics.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"_main",
+				"src\\EbaySweden.TouchWeb\\Areas\\Default\\Views\\Shared\\_MainLayout.cshtml"
+			],
+			[
+				"",
+				"D:\\ebay\\tradera\\Applications\\TouchWeb\\src\\EbaySweden.TouchWeb\\TouchWeb.csproj"
+			],
+			[
+				"start-",
+				"src\\EbaySweden.TouchWeb\\static\\style\\components\\start-page.scss"
+			],
+			[
+				"bidding",
+				"src\\EbaySweden.TouchWeb\\static\\script\\app\\ui\\view-item\\bidding-ui.js"
+			],
+			[
+				"app.",
+				"src\\EbaySweden.TouchWeb\\static\\script\\app.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		]
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 279.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

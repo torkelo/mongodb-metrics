@@ -1,0 +1,227 @@
+{
+    "host": "my-mongo-db1",
+    "version": "2.4.4",
+    "process": "mongod",
+    "pid": 1500,
+    "uptime": 3981605,
+    "uptimeMillis": 3981604698,
+    "uptimeEstimate": 3946362,
+    "localTime": {
+        "$date": "Mon Nov 18 17:18:23 2013"
+    },
+    "asserts": {
+        "regular": 0,
+        "warning": 0,
+        "msg": 0,
+        "user": 1053,
+        "rollovers": 0
+    },
+    "backgroundFlushing": {
+        "flushes": 66359,
+        "total_ms": 2149461,
+        "average_ms": 32.39140131707832,
+        "last_ms": 25,
+        "last_finished": {
+            "$date": "Mon Nov 18 17:17:43 2013"
+        }
+    },
+    "connections": {
+        "current": 145,
+        "available": 9455,
+        "totalCreated": 4485255
+    },
+    "cursors": {
+        "totalOpen": 5,
+        "clientCursors_size": 5,
+        "timedOut": 11,
+        "totalNoTimeout": 5
+    },
+    "dur": {
+        "commits": 30,
+        "journaledMB": 0.36864,
+        "writeToDataFilesMB": 0.567169,
+        "compression": 0.6321334503950834,
+        "commitsInWriteLock": 0,
+        "earlyCommits": 0,
+        "timeMs": {
+            "dt": 3097,
+            "prepLogBuffer": 0,
+            "writeToJournal": 19,
+            "writeToDataFiles": 4,
+            "remapPrivateView": 1
+        }
+    },
+    "extra_info": {
+        "note": "fields vary by platform",
+        "heap_usage_bytes": 200801488,
+        "page_faults": 25538846
+    },
+    "globalLock": {
+        "totalTime": 3981604700000,
+        "lockTime": 4559696686,
+        "currentQueue": {
+            "total": 1,
+            "readers": 1,
+            "writers": 0
+        },
+        "activeClients": {
+            "total": 1,
+            "readers": 0,
+            "writers": 1
+        }
+    },
+    "indexCounters": {
+        "accesses": 5272111398,
+        "hits": 5275531272,
+        "misses": 0,
+        "resets": 0,
+        "missRatio": 0
+    },
+    "locks": {
+        "MyDb1": {
+            "timeLockedMicros": {
+                "r": 95784702042,
+                "w": 56554720244
+            },
+            "timeAcquiringMicros": {
+                "r": 145584319457,
+                "w": 23625747691
+            }
+        },
+        "MyDb2": {
+            "timeLockedMicros": {
+                "r": 1590880978,
+                "w": 2971268607
+            },
+            "timeAcquiringMicros": {
+                "r": 42060940722,
+                "w": 9653862083
+            }
+        }
+    },
+    "network": {
+        "bytesIn": 8194310173,
+        "bytesOut": 1412580107981,
+        "numRequests": 129732860
+    },
+    "opcounters": {
+        "insert": 7577,
+        "query": 29375350,
+        "update": 6639,
+        "delete": 0,
+        "getmore": 130108,
+        "command": 100837536
+    },
+    "opcountersRepl": {
+        "insert": 64889442,
+        "query": 0,
+        "update": 31956896,
+        "delete": 60104904,
+        "getmore": 0,
+        "command": 1
+    },
+    "recordStats": {
+        "accessesNotInMemory": 9848319,
+        "pageFaultExceptionsThrown": 11653,
+        "MyDb1": {
+            "accessesNotInMemory": 3430171,
+            "pageFaultExceptionsThrown": 4336
+        },
+        "MyDb2": {
+            "accessesNotInMemory": 142026,
+            "pageFaultExceptionsThrown": 0
+        }
+    },
+    "repl": {
+        "setName": "Utility",
+        "ismaster": false,
+        "secondary": true,
+        "hosts": [
+            "my-mongo-db1:27017",
+            "my-mongo-db2:27017",
+            "my-mongo-db3:27017"
+        ],
+        "primary": "my-mongo-db2:27017",
+        "me": "my-mongo-db1:27017"
+    },
+    "writeBacksQueued": false,
+    "mem": {
+        "bits": 64,
+        "resident": 4356,
+        "virtual": 236082,
+        "supported": true,
+        "mapped": 117306,
+        "mappedWithJournal": 234612
+    },
+    "metrics": {
+        "document": {
+            "deleted": 0,
+            "inserted": 7577,
+            "returned": 457807369,
+            "updated": 6429
+        },
+        "getLastError": {
+            "wtime": {
+                "num": 8446,
+                "totalMillis": 19
+            },
+            "wtimeouts": 0
+        },
+        "operation": {
+            "fastmod": 1012,
+            "idhack": 149147,
+            "scanAndOrder": 10
+        },
+        "queryExecutor": {
+            "scanned": 14272893492
+        },
+        "record": {
+            "moves": 4199716
+        },
+        "repl": {
+            "apply": {
+                "batches": {
+                    "num": 73812576,
+                    "totalMillis": 75874314
+                },
+                "ops": 156951512
+            },
+            "buffer": {
+                "count": 479,
+                "maxSizeBytes": 268435456,
+                "sizeBytes": 55770
+            },
+            "network": {
+                "bytes": 95165565179,
+                "getmores": {
+                    "num": 103179325,
+                    "totalMillis": 3845024164
+                },
+                "ops": 156952137,
+                "readersCreated": 1256
+            },
+            "oplog": {
+                "insert": {
+                    "num": 156974192,
+                    "totalMillis": 1862754
+                },
+                "insertBytes": 91469753193
+            },
+            "preload": {
+                "docs": {
+                    "num": 31956896,
+                    "totalMillis": 60768995
+                },
+                "indexes": {
+                    "num": 677122683,
+                    "totalMillis": 26039973
+                }
+            }
+        },
+        "ttl": {
+            "deletedDocuments": 9681,
+            "passes": 66332
+        }
+    },
+    "ok": 1
+}
