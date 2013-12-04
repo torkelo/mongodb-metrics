@@ -15,7 +15,7 @@ describe('when transforming mongo db metrics', function() {
 	};
 
 	var config = {
-		"graphite-key-template": "test.databases.<%= cluster %>.<%= host %>.<%= metric %>"
+		graphiteKeyTemplate: 'test.databases.<%= cluster %>.<%= host %>.<%= metric %>'
 	};
 
 	var writer = require('../lib/writer')(config);

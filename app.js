@@ -1,7 +1,7 @@
 
 var RQ = require('./rq');
 var _ = require('underscore');
-var config = require('./config.json');
+var config = require('./config.js');
 var readers = require('./lib/readers');
 var writer = require('./lib/writer')(config);
 
