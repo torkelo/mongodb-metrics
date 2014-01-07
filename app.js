@@ -1,7 +1,12 @@
 
 var RQ = require('./rq');
 var _ = require('underscore');
-var config = require('./config.js');
+
+var path = require('path');
+var appPath = path.dirname(process.mainModule.filename);
+var configPath = path.join(appPath, 'config.js');
+var config = require(configPath);
+
 var readers = require('./lib/readers');
 var writer = require('./lib/writer')(config);
 
@@ -14,7 +19,7 @@ function fetchDataForServer(requestion, server, lastMetrics) {
 	])(requestion, server);
 }
 
-function fetchReplicaStatus(requestion, server, lastMetrics) {
+function fetchReplicaStatus(requestion, server) {
 	RQ.sequence([
 		readers.connectToMongoDb,
 		readers.replSetGetStatus,
@@ -45,7 +50,7 @@ function intervalLoop() {
 
 	var	replicaWork = config.servers.map(function(server, index) {
 		return function(requestion) {
-			fetchReplicaStatus(requestion, server, lastReplicaMetrics);
+			fetchReplicaStatus(requestion, server);
 		};
 	});
 
