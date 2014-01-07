@@ -1,12 +1,13 @@
 var should = require('should');
 
 describe('when transforming mongo db metrics', function() {
-	var result;
+	var result, secondResult;
 
 	var serverStatus = require('./serverStatus.json');
 	var metricMap = {
-		connections: { current: 1, available: 1 },
-		backgroundFlushing: { last_ms: 1 },
+		connections: { current: "gauge", available: "gauge" },
+		backgroundFlushing: { last_ms: "gauge" },
+		asserts: { user: "counter" }
 	};
 
 	var server = {
@@ -15,10 +16,12 @@ describe('when transforming mongo db metrics', function() {
 	};
 
 	var config = {
-		graphiteKeyTemplate: 'test.databases.<%= cluster %>.<%= host %>.<%= metric %>'
+		graphiteKeyTemplateGauges: 'test.databases.<%= cluster %>.<%= host %>.gauges.<%= metric %>',
+		graphiteKeyTemplateCounters: 'test.databases.<%= cluster %>.<%= host %>.counters.<%= metric %>.count'
 	};
 
 	var writer = require('../lib/writer')(config);
+	var RQ = require('../rq');
 
 	before(function(done) {
 		done();
@@ -27,21 +30,30 @@ describe('when transforming mongo db metrics', function() {
 	describe('without short hostname default', function() {
 
 		before(function(done) {
-			var func = writer.toGraphiteMetricsArray(server, metricMap);
+			writer.toGraphiteMetricsArray(server, metricMap)
+				(function(success, failure) {
+					result = success;
 
-			func(function(success, failure) {
-				result = success;
-				done();
-			}, serverStatus);
+					serverStatus.asserts.user = 1053 + 10;
+					writer.toGraphiteMetricsArray(server, metricMap, result)
+						(function (success2, failure2) {
+							secondResult = success2;
+							done();
+						}, serverStatus);
+				}, serverStatus);
 		});
 
-
 		it('should transform to array with flat key value', function(done) {
-			result['test.databases.muppet.muppet_prod_app_com.connections_current'].should.equal(145);
-			result['test.databases.muppet.muppet_prod_app_com.backgroundFlushing_last_ms'].should.equal(25);
+			result.keyValues['test.databases.muppet.muppet_prod_app_com.gauges.connections_current'].should.equal(145);
+			result.keyValues['test.databases.muppet.muppet_prod_app_com.gauges.backgroundFlushing_last_ms'].should.equal(25);
 			done();
 		});
 
+		it('should only send counter deltas', function(done) {
+			result.keyValues['test.databases.muppet.muppet_prod_app_com.counters.asserts_user.count'].should.equal(0);
+			secondResult.keyValues['test.databases.muppet.muppet_prod_app_com.counters.asserts_user.count'].should.equal(10);
+			done();
+		});
 	});
 
 
@@ -59,8 +71,8 @@ describe('when transforming mongo db metrics', function() {
 
 
 		it('should use shortname instead of host', function(done) {
-			result['test.databases.muppet.shorty.connections_current'].should.equal(145);
-			result['test.databases.muppet.shorty.backgroundFlushing_last_ms'].should.equal(25);
+			result.keyValues['test.databases.muppet.shorty.gauges.connections_current'].should.equal(145);
+			result.keyValues['test.databases.muppet.shorty.gauges.backgroundFlushing_last_ms'].should.equal(25);
 			done();
 		});
 
