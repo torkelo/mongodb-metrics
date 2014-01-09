@@ -51,7 +51,7 @@ function intervalLoop() {
 	var clusters = _.values(_.groupBy(config.servers, 'cluster'));
 	var work = clusters.map(function(servers) {
 
-		var	replicaWork = config.servers.map(function(server, index) {
+		var	replicaWork = servers.map(function(server, index) {
 			return function(requestion) {
 				fetchReplicaStatus(requestion, server);
 			};
