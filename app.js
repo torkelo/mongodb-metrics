@@ -48,13 +48,19 @@ function intervalLoop() {
 		}
 	});
 
-	var	replicaWork = config.servers.map(function(server, index) {
-		return function(requestion) {
-			fetchReplicaStatus(requestion, server);
-		};
+	var clusters = _.values(_.groupBy(config.servers, 'cluster'));
+	var work = clusters.map(function(servers) {
+
+		var	replicaWork = config.servers.map(function(server, index) {
+			return function(requestion) {
+				fetchReplicaStatus(requestion, server);
+			};
+		});
+
+		return RQ.fallback(replicaWork);
 	});
 
-	RQ.fallback(replicaWork)(function(success, failure) {
+	RQ.parallel(work)(function(success, failure) {
 		if (failure) {
 			console.log('Error:', failure);
 		}
