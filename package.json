@@ -1,6 +1,6 @@
 {
   "name": "mongodb-metrics",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "mongodb metrics to graphite application",
   "main": "app.js",
   "dependencies": {
